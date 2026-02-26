@@ -11,7 +11,6 @@ public:
         const int n = static_cast<int>(heights.size());
         std::vector<int> stack;
         int maxArea = 0;
-
         for (int i = 0; i <= n; ++i) {
             int h = (i == n ? 0 : heights[i]);
 
@@ -27,7 +26,6 @@ public:
 
             stack.push_back(i);
         }
-
         return maxArea;
     }
 };
