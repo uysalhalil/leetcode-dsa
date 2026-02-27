@@ -64,3 +64,14 @@ Space: O(1) extra
 **Complexity:**
 Time: O(n + k)
 Space: O(1)
+
+### [0232 — implement queue using stacks](../problems/0232-implement-queue-using-stacks.cpp)
+
+**Idea:** simulate FIFO behavior using two LIFO stacks
+**Approach:**
+- Maintain an input stack for pushes and an output stack for pops
+- On `peek()` or `pop()`, transfer all elements from input to output only when output is empty
+- This ensures amortized O(1) operations while preserving queue order
+**Complexity:**
+Time: amortized O(1)
+Space: O(n)
