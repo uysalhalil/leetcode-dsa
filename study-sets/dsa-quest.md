@@ -42,3 +42,14 @@ Space: O(n)
 Time: O(n)
 Space: O(n)
 
+### [1700 — number of students unable to eat lunch](../problems/1700-number-of-students-unable-to-eat-lunch.cpp)
+
+**Idea:** simulate the queue until no progress can be made
+**Approach:**
+- Students form a queue; sandwiches form a stack-like list
+- If the front student matches the top sandwich, both are removed
+- Otherwise, rotate the student to the back
+- Stop when a full rotation occurs with no matches
+**Complexity:**
+Time: O(n)
+Space: O(1) extra
