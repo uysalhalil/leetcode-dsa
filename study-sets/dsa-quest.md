@@ -53,3 +53,14 @@ Space: O(n)
 **Complexity:**
 Time: O(n)
 Space: O(1) extra
+
+### [2073 — time needed to buy tickets](../problems/2073-time-needed-to-buy-tickets.cpp)
+
+**Idea:** simulate the circular queue until the target person finishes
+**Approach:**
+- Maintain an index that cycles through the queue
+- Each time a person with remaining tickets is visited, decrement their count and increment time
+- Stop when the target index reaches zero
+**Complexity:**
+Time: O(n + k)
+Space: O(1)
