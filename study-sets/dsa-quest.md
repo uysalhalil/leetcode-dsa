@@ -75,3 +75,27 @@ Space: O(1)
 **Complexity:**
 Time: amortized O(1)
 Space: O(n)
+
+### [1046 — last stone weight](../problems/1046-last-stone-weight.cpp)
+
+**Idea:** repeatedly smash the two heaviest stones using a max‑heap
+**Approach:**
+- Build a max‑heap from the input stones
+- Pop the two largest values, compute their difference
+- Push the difference back if non‑zero
+- Continue until at most one stone remains
+**Complexity:**
+Time: O(n log n)
+Space: O(n)
+
+### [0373 — find k pairs with smallest sums](../problems/0373-find-k-pairs-with-smallest-sums.cpp)
+
+**Idea:** treat pair sums as a sorted matrix and extract the next smallest cell
+**Approach:**
+- Visualize all pairs `(nums1[i], nums2[j])` as an `m × n` matrix sorted by rows and columns
+- Use a min‑heap seeded with `(0,0)` representing the smallest sum
+- Repeatedly pop the smallest pair and push its neighbors `(i+1,j)` and `(i,j+1)`
+- Track visited `(i,j)` pairs to avoid duplicates while exploring only the needed frontier
+**Complexity:**
+Time: O(k log k)
+Space: O(k)
