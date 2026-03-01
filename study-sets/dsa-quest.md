@@ -99,3 +99,17 @@ Space: O(n)
 **Complexity:**
 Time: O(k log k)
 Space: O(k)
+
+### [1354 — construct target array with multiple sums](../problems/1354-construct-target-array-with-multiple-sums.cpp)
+
+**Idea:** reverse the construction process by undoing the last operation on the largest element
+**Approach:**
+- Observe that in the forward process, one element becomes the sum of the entire array
+- Reverse the process by repeatedly selecting the largest element, which must have been updated last
+- Let `x` be the largest value and `rest = total_sum - x`
+- The previous value of `x` must be `x % rest`, since forward updates add `rest` repeatedly
+- Replace `x` with `x % rest` and continue until all elements become `1`
+- Use a max‑heap to efficiently track and update the largest element
+**Complexity:**
+Time: O(n log n)
+Space: O(n)
