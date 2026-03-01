@@ -113,3 +113,21 @@ Space: O(k)
 **Complexity:**
 Time: O(n log n)
 Space: O(n)
+
+### [0520 — detect capital](../problems/0520-detect-capital.cpp)
+
+**Idea:** validate whether a word follows one of three allowed capitalization patterns
+**Approach:**
+- Observe that a word is valid if it matches exactly one of these forms:
+  - all letters uppercase
+  - all letters lowercase
+  - only the first letter uppercase and the rest lowercase
+- Count how many uppercase letters appear in the word
+- The capitalization is valid if:
+  - the count equals the word length
+  - the count is zero
+  - the count is one and the first character is uppercase
+- Use character classification (`isupper`, `islower`) instead of transforming characters
+**Complexity:**
+Time: O(n)
+Space: O(1)
