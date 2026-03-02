@@ -131,3 +131,19 @@ Space: O(n)
 **Complexity:**
 Time: O(n)
 Space: O(1)
+
+### [0482 — license key formatting](../problems/0482-license-key-formatting.cpp)
+
+**Idea:** normalize the string by removing dashes and uppercasing, then rebuild groups of size `K`
+**Approach:**
+- Iterate over the input string and skip all `'-'` characters
+- Convert each remaining character to uppercase and append to a temporary buffer
+- Compute the size of the first group using `temp.size() % K`
+- Append the first group (if non‑empty), then append subsequent groups of size `K` separated by dashes
+- This forward‑construction approach keeps the logic simple and readable
+**Note on `toupper`:**
+- `toupper(c)` is undefined behavior when `c` is a negative `char`
+- The safe form is `toupper(static_cast<unsigned char>(c))`, which ensures correct behavior for all ASCII inputs
+**Complexity:**
+Time: O(n)
+Space: O(n)
