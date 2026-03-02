@@ -147,3 +147,24 @@ Space: O(1)
 **Complexity:**
 Time: O(n)
 Space: O(n)
+
+### [0831 — masking personal information](../problems/0831-masking-personal-information.cpp)
+
+**Idea:** classify the input as email or phone and apply the corresponding masking rules
+**Approach:**
+- **Email:**
+  - Lowercase the entire string
+  - Keep the first and last character of the name part
+  - Replace the middle with exactly five asterisks
+  - Append the domain unchanged (lowercased)
+- **Phone:**
+  - Extract digits only
+  - Last four digits remain visible
+  - Local number becomes `***-***-XXXX`
+  - If a country code exists, prefix with `"+"` and mask its digits with `*`
+**Note on `toupper` / `tolower`:**
+- These functions operate on `unsigned char` values; calling them on a signed `char` may cause undefined behavior
+- The safe form is `toupper(static_cast<unsigned char>(c))` and `tolower(static_cast<unsigned char>(c))`
+**Complexity:**
+Time: O(n)
+Space: O(n)
