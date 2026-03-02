@@ -182,3 +182,23 @@ Space: O(n)
 **Complexity:**
 Time: O(n) average
 Space: O(n)
+
+### [0796 — rotate string](../problems/0796-rotate-string.cpp)
+
+**Idea:** determine whether `goal` is a rotation of `s`
+**Approach (my implementation):**
+- Reject immediately if lengths differ
+- Identify all indices in `s` where the first character of `goal` appears
+- For each candidate shift, compare characters using modular indexing
+- A match means `goal` is reachable by rotating `s`
+This version is explicit and readable: it checks rotation structure directly without relying on string concatenation.
+
+**Approach (canonical):**
+- A string is a rotation of itself if it appears inside a non‑trivial rotation of its double
+- Concatenate `s + s` and search for `goal` inside the substring that excludes the first and last character
+- If `goal` appears, it must be a rotation of `s`
+This is one of those problems where the trick is obvious only after you’ve seen it; without the rotation insight, the problem feels much harder than it is.
+
+**Complexity:**
+- My implementation: O(n²) worst case
+- Canonical implementation: O(n) average
