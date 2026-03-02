@@ -221,3 +221,16 @@ This is one of those problems where knowing the invariant collapses the entire s
 **Complexity:**
 Time: O(n) average
 Space: O(n)
+
+### [0083 — remove duplicates from sorted list](../problems/0083-remove-duplicates-from-sorted-list.cpp)
+
+**Idea:** the list is sorted, so duplicates appear in consecutive positions
+**Approach:**
+- Traverse the list once
+- If the current node and the next node have the same value, skip the next node by rewiring the pointer
+- Otherwise, move forward normally
+This removes duplicates in-place without extra memory.
+
+**Complexity:**
+Time: O(n)
+Space: O(1)
