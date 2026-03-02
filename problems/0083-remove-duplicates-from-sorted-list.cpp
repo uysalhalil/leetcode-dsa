@@ -15,7 +15,9 @@ public:
         ListNode* currNode = head;
         while (currNode->next) {
             if (currNode->val == currNode->next->val) {
-                currNode->next = currNode->next->next;
+                ListNode* dup = currNode->next;
+                currNode->next = dup->next;
+                delete dup;
             } else {
                 currNode = currNode->next;
             }
