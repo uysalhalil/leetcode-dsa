@@ -168,3 +168,17 @@ Space: O(n)
 **Complexity:**
 Time: O(n)
 Space: O(n)
+
+### [0459 — repeated substring pattern](../problems/0459-repeated-substring-pattern.cpp)
+
+**Idea:** a string repeats if it appears inside a rotation of itself
+**Approach:**
+- Concatenate the string with itself
+- Remove the first and last character to avoid the trivial match
+- If the original string appears inside this trimmed double string, it must be composed of repeated substrings
+**Why it works:**
+- Doubling the string generates all rotations
+- A repeated pattern will always appear as a non-trivial rotation
+**Complexity:**
+Time: O(n) average
+Space: O(n)
