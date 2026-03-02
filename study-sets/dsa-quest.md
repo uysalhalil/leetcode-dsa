@@ -202,3 +202,22 @@ This is one of those problems where the trick is obvious only after you’ve see
 **Complexity:**
 - My implementation: O(n²) worst case
 - Canonical implementation: O(n) average
+
+### [0686 — repeated string match](../problems/0686-repeated-string-match.cpp)
+
+**Idea:** determine the minimum number of times `a` must be repeated so that `b` becomes a substring
+**Approach (explicit growth):**
+- Build a repeated version of `a` until its length reaches or exceeds the length of `b`
+- Check if `b` appears as a substring
+- If not, append one more copy of `a` and check again
+This version is straightforward and readable: it grows the candidate string just enough to cover all valid cases without arbitrary bounds.
+
+**Approach (canonical invariant):**
+- If `b` is to appear inside repeated `a`, the repeated string only needs to reach length `ceil(|b| / |a|)`
+- At most one extra repetition is required to cover boundary‑crossing matches
+- Therefore, only two substring checks are ever needed
+This is one of those problems where knowing the invariant collapses the entire solution to a few lines; without it, the problem feels much harder than it is.
+
+**Complexity:**
+Time: O(n) average
+Space: O(n)
