@@ -247,3 +247,16 @@ This works in O(n) time and O(1) space, but requires careful pointer management 
 **Complexity:**
 Time: O(n)
 Space: O(1)
+
+### [0206 — reverse linked list](../problems/0206-reverse-linked-list.cpp)
+
+**Idea:** reverse the direction of all `next` pointers in a singly linked list
+**Approach:**
+- Maintain three pointers: `prev`, `curr`, and `next`
+- At each step, redirect `curr->next` to `prev`
+- Advance all pointers forward and continue until the list is exhausted
+This performs the reversal in-place with constant extra space.
+
+**Complexity:**
+Time: O(n)
+Space: O(1)
