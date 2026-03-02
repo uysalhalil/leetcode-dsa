@@ -260,3 +260,17 @@ This performs the reversal in-place with constant extra space.
 **Complexity:**
 Time: O(n)
 Space: O(1)
+
+### [0001 — two sum](../problems/0001-two-sum.cpp)
+
+**Idea:** find two indices whose values sum to the target
+**Approach:**
+- Maintain a hash map from value to index
+- For each element `nums[i]`, compute its complement `target - nums[i]`
+- If the complement has been seen before, return the pair of indices
+- Otherwise, store the current value and continue
+This checks each element once and uses constant‑time lookups.
+
+**Complexity:**
+Time: O(n)
+Space: O(n)
