@@ -234,3 +234,16 @@ This removes duplicates in-place without extra memory.
 **Complexity:**
 Time: O(n)
 Space: O(1)
+
+### [0328 — odd even linked list](../problems/0328-odd-even-linked-list.cpp)
+
+**Idea:** group nodes by index parity while preserving internal order
+**Approach (my implementation):**
+- Compute the tail of the list
+- Traverse from the head and repeatedly extract the next even-indexed node
+- Append each extracted node to the end of the list
+This works in O(n) time and O(1) space, but requires careful pointer management and size tracking.
+
+**Complexity:**
+Time: O(n)
+Space: O(1)
