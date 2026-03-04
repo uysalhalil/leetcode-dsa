@@ -292,3 +292,19 @@ This avoids extra memory but requires more pointer manipulation.
 **Complexity:**
 Time: O(n)
 Space: O(n)
+
+### [0041 — first missing positive](../problems/0041-first-missing-positive.cpp)
+
+**Idea:** track all positive integers seen in the array and increment a running counter until a gap appears. The smallest positive integer not present in the set is the answer.
+
+**Approach:**
+- Maintain an `unordered_set<int>` containing all positive values encountered.
+- Track a variable `minMissingPosNum`, initialized to `1`.
+- For each number in the array:
+  - If it is positive, insert it into the set.
+  - While the current `minMissingPosNum` exists in the set, increment it.
+- After processing all numbers, the value of `minMissingPosNum` is the smallest missing positive.
+
+**Complexity:**
+- Time: O(n) due to ordered set insertions and lookups.
+- Space: O(n) for storing all positive integers.
