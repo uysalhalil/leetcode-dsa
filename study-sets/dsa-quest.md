@@ -274,3 +274,21 @@ This checks each element once and uses constant‑time lookups.
 **Complexity:**
 Time: O(n)
 Space: O(n)
+
+### [0138 — copy list with random pointer](../problems/0138-copy-list-with-random-pointer.cpp)
+
+**Idea:** create a deep copy of a linked list where each node has both `next` and `random` pointers
+**Approach (hash map):**
+- First pass: allocate a clone node for each original node and store the mapping
+- Second pass: wire the `next` and `random` pointers using the map
+This ensures every pointer in the cloned list refers to the correct cloned target and avoids pointer aliasing issues.
+
+**Approach (canonical O(1) space):**
+- Interleave cloned nodes between original nodes
+- Assign `random` pointers using the interleaving
+- Detach the cloned list
+This avoids extra memory but requires more pointer manipulation.
+
+**Complexity:**
+Time: O(n)
+Space: O(n)
