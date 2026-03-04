@@ -308,3 +308,17 @@ Space: O(n)
 **Complexity:**
 - Time: O(n) due to ordered set insertions and lookups.
 - Space: O(n) for storing all positive integers.
+
+### [1732 — find the highest altitude](../problems/1732-find-the-highest-altitude.cpp)
+
+**Idea:** track the altitude after each segment using a running sum and record the maximum value reached.
+
+**Approach (my implementation):**
+- Start at altitude `0`.
+- Iterate through the `gain` array, adding each value to a running `currentAltitude`.
+- After each update, compare `currentAltitude` with the maximum altitude seen so far and update it if necessary.
+- Return the maximum altitude reached during the traversal.
+
+**Complexity:**
+- Time: O(n)
+- Space: O(1)
