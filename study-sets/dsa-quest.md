@@ -322,3 +322,37 @@ Space: O(n)
 **Complexity:**
 - Time: O(n)
 - Space: O(1)
+
+### [1590 — make sum divisible by p](../problems/1590-make-sum-divisible-by-p.cpp)
+
+**Idea:** find the shortest subarray whose removal fixes the modulo mismatch between the total sum and \(p\).
+
+**Approach:**
+- Compute `total % p`; if it is `0`, no removal is needed.
+- Let `target = total % p`.
+- Use prefix sums modulo \(p\) and store the earliest index for each remainder in a hashmap.
+- For each prefix remainder `prefix`, compute the needed previous remainder  
+  \((prefix - target + p) \% p\)  
+  and update the minimum subarray length.
+- Insert or update the current prefix remainder in the hashmap.
+- Return the minimum valid length, or `-1` if none exists.
+
+**Complexity:**
+Time: O(n)  
+Space: O(n)
+
+### [1664 — ways to make a fair array](../problems/1664-ways-to-make-a-fair-array.cpp)
+
+**Idea:** track odd/even prefix sums to check whether removing an index balances the two sides.
+
+**Approach:**
+- Compute prefix sums for even indices and odd indices separately.
+- For each index `i`, simulate removing it by comparing:
+  - even sum before `i` + odd sum after `i`
+  - odd sum before `i` + even sum after `i`
+- If these two totals match, removing `i` makes the array fair.
+- Count all such valid indices.
+
+**Complexity:**
+Time: O(n)  
+Space: O(n)
