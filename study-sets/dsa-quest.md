@@ -331,14 +331,14 @@ Space: O(n)
 - Compute `total % p`; if it is `0`, no removal is needed.
 - Let `target = total % p`.
 - Use prefix sums modulo \(p\) and store the earliest index for each remainder in a hashmap.
-- For each prefix remainder `prefix`, compute the needed previous remainder  
-  \((prefix - target + p) \% p\)  
+- For each prefix remainder `prefix`, compute the needed previous remainder
+  \((prefix - target + p) \% p\)
   and update the minimum subarray length.
 - Insert or update the current prefix remainder in the hashmap.
 - Return the minimum valid length, or `-1` if none exists.
 
 **Complexity:**
-Time: O(n)  
+Time: O(n)
 Space: O(n)
 
 ### [1664 — ways to make a fair array](../problems/1664-ways-to-make-a-fair-array.cpp)
@@ -354,5 +354,19 @@ Space: O(n)
 - Count all such valid indices.
 
 **Complexity:**
-Time: O(n)  
+Time: O(n)
 Space: O(n)
+
+### [1200 — minimum absolute difference](../problems/1200-minimum-absolute-difference.cpp)
+
+**Idea:** sort the array so the minimum absolute difference must appear between adjacent elements.
+
+**Approach:**
+- Sort the array in non‑decreasing order.
+- Scan once to compute the global minimum adjacent difference.
+- Scan again and collect all adjacent pairs whose difference equals that minimum.
+- Return the list of such pairs.
+
+**Complexity:**
+Time: O(n log n)
+Space: O(1) extra (ignoring output)
