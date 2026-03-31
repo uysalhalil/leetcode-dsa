@@ -370,3 +370,18 @@ Space: O(n)
 **Complexity:**
 Time: O(n log n)
 Space: O(1) extra (ignoring output)
+
+### [1887 — reduction operations to make the array elements equal](../problems/1887-reduction-operations-to-make-the-array-elements-equal.cpp)
+
+**Idea:** after sorting, each time we encounter a new distinct value from the right, all elements to its right must be reduced once.
+
+**Approach:**
+- Sort the array in non‑decreasing order.
+- Traverse from right to left.
+- Whenever `nums[i]` differs from `nums[i-1]`, all elements to the right (`n - i`) must be incremented in the operation count.
+- Accumulate these increments to compute the total number of operations.
+- Return the final count.
+
+**Complexity:**
+Time: O(n log n)
+Space: O(1) extra
