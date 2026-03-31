@@ -446,3 +446,19 @@ Space: O(1)
 **Complexity:**
 Time: O(√c)
 Space: O(1)
+
+### [0033 — search in rotated sorted array](../problems/0033-search-in-rotated-sorted-array.cpp)
+
+**Idea:** find the rotation pivot, then perform a shifted binary search that maps virtual indices back to real ones.
+
+**Approach:**
+- First, locate the pivot (index of the smallest element) by binary searching against `nums[n‑1]`.
+- Compute a shift value so that the rotated array can be treated as if pivot were at index `0`.
+- Perform a binary search on this shifted index space:
+  - Convert each virtual midpoint back to the real index using modular arithmetic.
+  - Compare against the target and adjust bounds accordingly.
+- Return the mapped index if found, otherwise `-1`.
+
+**Complexity:**
+Time: O(log n)
+Space: O(1)

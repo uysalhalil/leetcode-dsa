@@ -1,0 +1,46 @@
+// problem: 0033 search in rotated sorted array
+// difficulty: medium
+// studysets: dsa-quest
+// url: https://leetcode.com/problems/search-in-rotated-sorted-array/
+// tags: array, binary-search
+
+#include <vector>
+
+using std::vector;
+
+class Solution {
+public:
+    int search(vector<int>& nums, int target) {
+        int n = nums.size();
+        int left = 0, right = n - 1;
+        // Find the index of the pivot element (the smallest element)
+        while (left <= right) {
+            int mid = (left + right) / 2;
+            if (nums[mid] > nums[n - 1]) {
+                left = mid + 1;
+            } else {
+                right = mid - 1;
+            }
+        }
+        return shiftedBinarySearch(nums, left, target);
+    }
+    // Shift elements in a circular manner, with the pivot element at index 0.
+    // Then perform a regular binary search
+    int shiftedBinarySearch(vector<int>& nums, int pivot, int target) {
+        int n = nums.size();
+        int shift = n - pivot;
+        int left = (pivot + shift) % n;
+        int right = (pivot - 1 + shift) % n;
+        while (left <= right) {
+            int mid = (left + right) / 2;
+            if (nums[(mid - shift + n) % n] == target) {
+                return (mid - shift + n) % n;
+            } else if (nums[(mid - shift + n) % n] > target) {
+                right = mid - 1;
+            } else {
+                left = mid + 1;
+            }
+        }
+        return -1;
+    }
+};
