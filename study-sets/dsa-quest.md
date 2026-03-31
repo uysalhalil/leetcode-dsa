@@ -386,7 +386,7 @@ Space: O(1) extra (ignoring output)
 Time: O(n log n)
 Space: O(1) extra
 
-### [56 — merge intervals](../problems/0056-merge-intervals.cpp)
+### [0056 — merge intervals](../problems/0056-merge-intervals.cpp)
 
 **Idea:** sort intervals by start time, then merge overlapping ones in a single pass.
 
@@ -402,7 +402,7 @@ Space: O(1) extra
 Time: O(n log n)
 Space: O(1) extra (ignoring output)
 
-### [852 — peak index in a mountain array](../problems/852-peak-index-in-a-mountain-array.cpp)
+### [0852 — peak index in a mountain array](../problems/0852-peak-index-in-a-mountain-array.cpp)
 
 **Idea:** linearly scan until the slope switches from increasing to decreasing.
 
