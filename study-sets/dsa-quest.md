@@ -415,3 +415,20 @@ Space: O(1) extra (ignoring output)
 **Complexity:**
 Time: O(n)
 Space: O(1)
+
+### [0704 — binary search](../problems/0704-binary-search.cpp)
+
+**Idea:** perform classic binary search by shrinking the range until the target is found or the interval collapses.
+
+**Approach:**
+- Initialize `l = 0` and `r = nums.size()`.
+- While `l < r`:
+  - Compute midpoint `m = (r - l) / 2 + l`.
+  - If `nums[m] == target`, return `m`.
+  - If `nums[m] < target`, move left bound to `m + 1`.
+  - Otherwise, move right bound to `m`.
+- If the loop ends with no match, return `-1`.
+
+**Complexity:**
+Time: O(log n)
+Space: O(1)
