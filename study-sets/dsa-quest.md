@@ -385,3 +385,19 @@ Space: O(1) extra (ignoring output)
 **Complexity:**
 Time: O(n log n)
 Space: O(1) extra
+
+### [56 — merge intervals](../problems/56-merge-intervals.cpp)
+
+**Idea:** sort intervals by start time, then merge overlapping ones in a single pass.
+
+**Approach:**
+- Sort all intervals by their starting value.
+- Initialize the merged list with the first interval.
+- For each next interval:
+  - If it overlaps with the last merged interval, update the end to the max of both.
+  - Otherwise, append it as a new disjoint interval.
+- Return the merged list.
+
+**Complexity:**
+Time: O(n log n)
+Space: O(1) extra (ignoring output)
