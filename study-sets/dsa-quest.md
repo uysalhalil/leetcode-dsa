@@ -432,3 +432,17 @@ Space: O(1)
 **Complexity:**
 Time: O(log n)
 Space: O(1)
+
+### [0633 — sum of square numbers](../problems/0633-sum-of-square-numbers.cpp)
+
+**Idea:** try all possible `a` values and check whether `c - a²` is a perfect square.
+
+**Approach:**
+- Loop `a` from `0` upward while `a² <= c`.
+- For each `a`, compute `b = sqrt(c - a*a)`.
+- If `b` is an integer, return `true` because `a² + b² = c`.
+- If the loop finishes with no match, return `false`.
+
+**Complexity:**
+Time: O(√c)
+Space: O(1)
