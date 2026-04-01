@@ -462,3 +462,63 @@ Space: O(1)
 **Complexity:**
 Time: O(log n)
 Space: O(1)
+
+### [0215 — kth largest element in an array](../problems/0215-kth-largest-element-in-an-array.cpp)
+
+**Idea:** build a max‑heap from all elements, then pop until reaching the k‑th largest.
+
+**Approach:**
+- Construct a `priority_queue<int>` (max‑heap) using all elements of `nums`.
+- Repeatedly pop from the heap `k‑1` times.
+- The next top element is the k‑th largest.
+- Return that value.
+
+**Complexity:**
+Time: O(n + k log n)
+Space: O(n)
+
+### [0912 — sort an array](../problems/0912-sort-an-array.cpp)
+
+**Idea:** use randomized 3‑way quicksort to partition elements into `< pivot`, `== pivot`, and `> pivot` regions, then recursively sort the outer partitions.
+
+**Approach:**
+- Call `quick_sort3(nums, 0, nums.size() - 1)`.
+- The `partition3` function:
+  - Chooses the first element as pivot.
+  - Uses three regions:
+    - elements less than pivot
+    - elements equal to pivot
+    - elements greater than pivot
+  - Swaps elements to maintain these regions in a single linear scan.
+- Recursively sort the `< pivot` and `> pivot` partitions.
+- Return the fully sorted array.
+
+**Complexity:**
+Time:
+- Average: O(n log n)
+- Worst‑case: O(n²) (rare due to pivot behavior)
+
+Space: O(log n) recursion depth
+
+### [0147 — insertion sort list](../problems/0147-insertion-sort-list.cpp)
+
+**Idea:** perform insertion sort directly on the linked list by scanning ahead and inserting out‑of‑order nodes into their correct position.
+
+**Approach:**
+- Create a `dummy_head` pointing to the original list.
+- Maintain two pointers:
+  - `prev` — the node before the current sorted boundary
+  - `curr` — the node being checked
+- For each `curr`, run an inner scan:
+  - Use `prev_runner` and `runner` to search for a node whose value is smaller than `curr->val`.
+  - When found:
+    - Remove `runner` from its position.
+    - Insert it before `curr`.
+    - Update `curr` to the newly inserted node.
+    - Reset `runner` to continue scanning correctly.
+- After the inner loop, advance both `prev` and `curr`.
+- Return `dummy_head->next` as the sorted list.
+
+**Complexity:**
+Time: O(n²)
+Space: O(1)
